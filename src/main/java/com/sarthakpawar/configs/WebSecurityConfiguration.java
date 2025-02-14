@@ -26,18 +26,12 @@ import static org.springframework.security.config.http.SessionCreationPolicy.STA
 @EnableWebSecurity
 public class WebSecurityConfiguration {
 
-
     @Autowired
-      private   UserService userService;
-
-
+    private   UserService userService;
     @Autowired
     private JwtAuthenticationFilter jwtAuthenticationFilter;
-
-
     @Bean
      public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-
          http.csrf(AbstractHttpConfigurer::disable)
                  .authorizeHttpRequests(request->
                          request.requestMatchers("/api/auth/**").permitAll()
@@ -47,25 +41,21 @@ public class WebSecurityConfiguration {
                  .sessionManagement(manager-> manager.sessionCreationPolicy(STATELESS))
                  .authenticationProvider(authenticationProvider()).addFilterBefore(jwtAuthenticationFilter,
                          UsernamePasswordAuthenticationFilter.class);
-
-
               return http.build();
      }
 
-
-        @Bean
-        public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws  Exception{
+     @Bean
+     public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws  Exception{
         return config.getAuthenticationManager();
-        }
+    }
 
 
-        @Bean
-        public AuthenticationProvider authenticationProvider(){
-            DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
-             authenticationProvider.setUserDetailsService(userService.userDetailsService());
-             authenticationProvider.setPasswordEncoder(new BCryptPasswordEncoder());
-             return  authenticationProvider;
-
-        }
+    @Bean
+    public AuthenticationProvider authenticationProvider(){
+        DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
+        authenticationProvider.setUserDetailsService(userService.userDetailsService());
+        authenticationProvider.setPasswordEncoder(new BCryptPasswordEncoder());
+        return  authenticationProvider;
+    }
 
 }
