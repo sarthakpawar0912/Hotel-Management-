@@ -8,6 +8,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface RoomRepository extends JpaRepository<Room,Long> {
-
     Page<Room>findByAvailable(boolean available, Pageable pageable);
 }

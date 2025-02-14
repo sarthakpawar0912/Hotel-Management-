@@ -8,6 +8,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ReservationRepository extends JpaRepository<Reservation,Long> {
-
     Page<Reservation> findAllByUserId(Pageable pageable, Long userId);
 }
