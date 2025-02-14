@@ -6,15 +6,10 @@ import lombok.Data;
 public class RoomDto {
 
     private Long id;
-
     private String name;
-
     private String type;
-
     private Long price;
-
     private boolean available;
-
     public RoomDto(Long id, String name, String type, Long price, boolean available) {
         this.id = id;
         this.name = name;

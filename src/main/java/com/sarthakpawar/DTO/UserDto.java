@@ -5,13 +5,9 @@ import com.sarthakpawar.enums.UserRole;
 public class UserDto {
 
     private Long id;
-
     private String email;
-
     private String name;
-
     private UserRole userRole;
-
     public UserDto(Long id, String email, String name, UserRole userRole) {
         this.id = id;
         this.email = email;

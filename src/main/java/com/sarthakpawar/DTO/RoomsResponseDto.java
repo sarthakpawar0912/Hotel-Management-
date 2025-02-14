@@ -5,11 +5,8 @@ import java.util.List;
 public class RoomsResponseDto {
 
     private List<RoomDto> roomDtoList;
-
     private Integer totalPages;
-
     private Integer pageNumber;
-
     public RoomsResponseDto(List<RoomDto> roomDtoList, Integer totalPages, Integer pageNumber) {
         this.roomDtoList = roomDtoList;
         this.totalPages = totalPages;
