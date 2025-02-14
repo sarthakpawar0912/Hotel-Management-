@@ -28,13 +28,10 @@ public class RoomController {
         }
     }
 
-
-
     @GetMapping("/rooms/{pageNumber}")
     public ResponseEntity<?> getAllRooms(@PathVariable int pageNumber){
         return ResponseEntity.ok(roomService.getAllRooms(pageNumber));
     }
-
 
     @GetMapping("/room/{id}")
     public ResponseEntity<?> getRoomById(@PathVariable Long id){
@@ -46,9 +43,6 @@ public class RoomController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Something went wrong");
         }
     }
-
-
-
 
     @PutMapping("/room/{id}")
     public ResponseEntity<?> updateRoom(@PathVariable Long id,@RequestBody RoomDto roomDto){
@@ -70,7 +64,5 @@ public class RoomController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
     }
-
-
 
 }

@@ -14,7 +14,6 @@ public class BookingController {
     @Autowired
     private BookingService bookingService;
 
-
     @PostMapping("/book")
     public ResponseEntity<?> postBooking(@RequestBody ReservationDto reservationDto){
         boolean success=bookingService.postReservation(reservationDto);
@@ -26,7 +25,6 @@ public class BookingController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
     }
-
 
     @GetMapping("/bookings/{userId}/{pageNumber}")
     public ResponseEntity<?> getAllBookingsByUserId(@PathVariable Long userId, @PathVariable int pageNumber){
