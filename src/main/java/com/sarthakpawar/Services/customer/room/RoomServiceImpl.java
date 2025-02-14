@@ -14,20 +14,15 @@ import java.util.stream.Collectors;
 @Service("customerRoomService")
 
 public class RoomServiceImpl implements RoomService {
-
     @Autowired
     private RoomRepository roomRepository;
-
     public RoomsResponseDto getAvailableRooms(int pageNumber) {
-
         Pageable pageable = PageRequest.of(pageNumber, 6);
         Page<Room> roomPage=roomRepository.findByAvailable(true,pageable);
-
         RoomsResponseDto roomsResponseDto=new RoomsResponseDto();
         roomsResponseDto.setPageNumber(roomPage.getPageable().getPageNumber());
         roomsResponseDto.setTotalPages(roomPage.getTotalPages());
         roomsResponseDto.setRoomDtoList(roomPage.stream().map(Room::getRoomDto).collect(Collectors.toList()));
-
         return roomsResponseDto;
     }
 }
