@@ -8,24 +8,15 @@ import java.time.LocalDate;
 @Data
 public class ReservationDto {
     private Long id;
-
     private LocalDate checkInDate;
-
     private LocalDate checkOutDate;
-
     private Long price;
-
     private ReservationStatus reservationStatus;
-
-     private Long roomId;
-
-     private String roomType;
-
-     private String roomName;
-
-     private Long UserId;
-
-     private String username;
+    private Long roomId;
+    private String roomType;
+    private String roomName;
+    private Long UserId;
+    private String username;
 
     public ReservationDto(Long id, LocalDate checkInDate, LocalDate checkOutDate, Long price, ReservationStatus reservationStatus, Long roomId, String roomType, String roomName, Long userId, String username) {
         this.id = id;
