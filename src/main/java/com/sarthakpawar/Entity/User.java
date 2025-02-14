@@ -22,15 +22,10 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String email;
-
     private String password;
-
     private String name;
-
     private UserRole userRole;
-
     public User(Long id, String email, String password, String name, UserRole userRole) {
         this.id = id;
         this.email = email;

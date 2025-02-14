@@ -15,13 +15,9 @@ public class Room {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String name;
-
     private String type;
-
     private Long price;
-
     private boolean available;
 
     public Room(Long id, String name, String type, Long price, boolean available) {
@@ -34,7 +30,6 @@ public class Room {
 
     public RoomDto getRoomDto(){
         RoomDto roomDto=new RoomDto();
-
         roomDto.setId(id);
         roomDto.setName(name);
         roomDto.setType(type);

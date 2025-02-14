@@ -16,28 +16,20 @@ public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private LocalDate checkInDate;
-
     private LocalDate checkOutDate;
-
     private Long price;
-
     private ReservationStatus reservationStatus;
-
-
 
     @ManyToOne(fetch = FetchType.LAZY,optional = false)
     @JoinColumn(name ="room_id",nullable = false )
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Room room;
 
-
     @ManyToOne(fetch = FetchType.LAZY,optional = false)
     @JoinColumn(name ="user_id",nullable = false )
     @OnDelete(action = OnDeleteAction.CASCADE)
     private User user;
-
 
     public Reservation(Long id, LocalDate checkInDate, LocalDate checkOutDate, Long price, ReservationStatus reservationStatus, Room room, User user) {
         this.id = id;
