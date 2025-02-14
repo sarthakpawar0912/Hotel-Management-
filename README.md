@@ -1,2 +1,18 @@
-# Hotel-Management-
-The **Hotel Management System** is a web-based application using **Java Spring Boot** and **MySQL** to streamline hotel operations. It offers **room booking, customer management, and an admin dashboard** for efficient administration. With secure authentication, real-time availability, it enhances both management efficiency and guest experience. 🚀
+# Hotel Management System 🏨
+
+This is a **Hotel Management System** built using **Java Spring Boot** and **Angular 18** with the **Ng-Zorro** library for the frontend.
+
+## Features 🚀
+- Room Booking
+- Customer Management
+- Admin Dashboard
+
+## Tech Stack 🛠
+- **Backend:** Java Spring Boot
+- **Frontend:** Angular 18, Ng-Zorro UI Library
+- **Database:** MySQL
+
+## Installation ⚙️
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/your-username/Hotel-Management.git
