@@ -19,7 +19,6 @@ public class AuthServiceImpl implements AuthService{
 
     @Autowired
     private  UserRepository userRepository;
-
     @PostConstruct
     public void createAnAdminAccount(){
         Optional<User> adminAccount=userRepository.findByUserRole(UserRole.ADMIN);
@@ -40,15 +39,12 @@ public class AuthServiceImpl implements AuthService{
         if (userRepository.findFirstByEmail(signUpRequest.getEmail()).isPresent()) {
             throw new EntityExistsException("User already present with Email: " + signUpRequest.getEmail());
         }
-
         User user = new User();
         user.setEmail(signUpRequest.getEmail());
         user.setName(signUpRequest.getName());
         user.setUserRole(UserRole.CUSTOMER);
         user.setPassword(new BCryptPasswordEncoder().encode(signUpRequest.getPassword()));
-
         User createdUser = userRepository.save(user);
-
         return new UserDto(
                 createdUser.getId(),
                 createdUser.getEmail(),
@@ -56,9 +52,4 @@ public class AuthServiceImpl implements AuthService{
                 createdUser.getUserRole()
         );
     }
-
-
-
-
-
 }
