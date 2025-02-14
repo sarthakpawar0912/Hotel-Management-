@@ -23,25 +23,16 @@ public class ReservationServiceImpl implements ReservationService{
 
     @Autowired
     private ReservationRepository reservationRepository ;
-
     @Autowired
     private RoomRepository roomRepository;
-
     public static final int SEARCH_RESULT_PER_PAGE=4;
-
-
     public ReservationResponseDto getAllReservations(int pageNumber){
-
         Pageable pageable= PageRequest.of(pageNumber, SEARCH_RESULT_PER_PAGE);
         Page<Reservation> reservationPage=reservationRepository.findAll(pageable);
-
         ReservationResponseDto reservationResponseDto=new ReservationResponseDto();
-
         reservationResponseDto.setReservationDtoList(reservationPage.stream().map(Reservation::getReservationDto).collect(Collectors.toList()));
-
        reservationResponseDto.setPageNumber((reservationPage.getPageable().getPageNumber()));
        reservationResponseDto.setTotalPages(reservationPage.getTotalPages());
-
        return reservationResponseDto;
     }
 
@@ -55,21 +46,12 @@ public class ReservationServiceImpl implements ReservationService{
             else {
                 existingReservation.setReservationStatus(ReservationStatus.REJECTED);
             }
-
             reservationRepository.save(existingReservation);
-
             Room existingRoom=existingReservation.getRoom();
             existingRoom.setAvailable(false);
-
             roomRepository.save(existingRoom);
             return  true;
         }
         return false;
     }
-
-
-
-
-
-
 }
