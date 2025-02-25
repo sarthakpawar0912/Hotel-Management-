@@ -15,4 +15,4 @@ This is a **Hotel Management System** built using **Java Spring Boot** and **Ang
 ## Installation ⚙️
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your-username/Hotel-Management.git
+   git clone https://github.com/sarthakpawar0912/Hotel-Management.git
